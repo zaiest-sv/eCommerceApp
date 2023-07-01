@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\eCommerceApp\\API\\API.csproj": {}
+    "D:\\myProjects\\eCommerceApp\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\eCommerceApp\\API\\API.csproj": {
+    "D:\\myProjects\\eCommerceApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\eCommerceApp\\API\\API.csproj",
+        "projectUniqueName": "D:\\myProjects\\eCommerceApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\eCommerceApp\\API\\API.csproj",
+        "projectPath": "D:\\myProjects\\eCommerceApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Zaiets_SV\\.nuget\\packages\\",
-        "outputPath": "D:\\eCommerceApp\\API\\obj\\",
+        "outputPath": "D:\\myProjects\\eCommerceApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Zaiets_SV\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://netom.ixtlan-team.si/artifactory/api/nuget/v3/ixtlan-internal-nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -44,6 +43,16 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
