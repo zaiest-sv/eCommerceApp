@@ -21,7 +21,7 @@ public class ProductRepository : IProductRepository
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
-    public async Task<IReadOnlyList<Product>> GetProductAsync()
+    public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
         return await _storeContext.Products
             .Include(p => p.ProductType)
@@ -29,12 +29,12 @@ public class ProductRepository : IProductRepository
             .ToListAsync();
     }
 
-    public async Task<IReadOnlyList<ProductBrand>> GetProductBrandAsync()
+    public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
     {
         return await _storeContext.ProductBrand.ToListAsync();
     }
 
-    public async Task<IReadOnlyList<ProductType>> GetProductTypeAsync()
+    public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
     {
         return await _storeContext.ProductType.ToListAsync();
     }
