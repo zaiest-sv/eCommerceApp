@@ -480,3 +480,5 @@ $RECYCLE.BIN/
 *.db-shm
 *.db-wal
 API/obj/rider.project.restore.info
+*.dll
+*.pdb
