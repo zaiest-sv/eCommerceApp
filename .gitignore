@@ -479,6 +479,6 @@ $RECYCLE.BIN/
 .idea
 *.db-shm
 *.db-wal
-API/obj/rider.project.restore.info
+*.info
 *.dll
-*.pdb
+*.cache
