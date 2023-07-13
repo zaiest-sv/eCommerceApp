@@ -1,0 +1,25 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  height: 80px;
+
+  .header-center {
+    button {
+      font-size: large;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+
+    button {
+      align-self: center;
+      margin-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<ng-container>
+  <mat-toolbar color="primary">
+    <div class="header-left">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <span class="spacer"></span>
+
+      <button mat-button routerLink="">Home</button>
+      <button mat-button routerLink="">Shop</button>
+      <span class="spacer"></span>
+    </div>
+
+    <div class="header-right">
+
+      <button mat-icon-button>
+        <mat-icon
+          [matBadge]="1"
+          [matBadgeHidden]="false"
+          matBadgeSize="medium"
+          matBadgeColor="warn"
+        >shopping_cart</mat-icon>
+      </button>
+
+
+      <button mat-flat-button routerLink="auth/login">Log in</button>
+      <button mat-flat-button routerLink="auth/signup">Sign up</button>
+
+      <button hidden="true" mat-button routerLink="auth/logout">Logout</button>
+    </div>
+
+  </mat-toolbar>
+</ng-container>
