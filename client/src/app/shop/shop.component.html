@@ -1,0 +1,72 @@
+<div class="container">
+
+  <div class="container-left">
+    <h2>Filters</h2>
+
+    <div class="container-left-sort">
+      <mat-form-field>
+        <mat-label>Sort</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let card of cards" [value]="cards">
+            {{ card.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="container-left-brands">
+      <h3>Brands</h3>
+
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let card of cards" [value]="card">
+          {{ card.title }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+
+    <div class="container-left-types">
+      <h3>Types</h3>
+
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let card of cards" [value]="card">
+          {{ card.title }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+
+  <div class="container-right">
+
+    <div class="grid-container">
+      <div class="header-container">
+        <h3 class="header-container-info">Showing 1 - 4 of 4 Results</h3>
+
+        <div class="header-container-search">
+          <mat-form-field>
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput type="search" placeholder="search here" class="search-input">
+          </mat-form-field>
+
+          <button mat-stroked-button color="primary">SEARCH</button>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <mat-card class="example-card" *ngFor="let product of products">
+          <mat-card-header>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>{{ product.productBrand }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{ product.pictureUrl }}" alt="Photo of a Product">
+          <mat-card-content>
+            <p>
+              {{ product.description }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+</div>
