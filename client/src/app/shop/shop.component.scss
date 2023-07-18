@@ -45,21 +45,12 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-gap: 20px;
-
-        mat-card {
-          width: 300px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-content: center;
-
-          img {
-            align-self: center;
-            width: 250px;
-            height: 250px;
-          }
-        }
       }
     }
+
+    //h2 {
+    //  margin: 20% auto;
+    //  text-align: center;
+    //}
   }
 }

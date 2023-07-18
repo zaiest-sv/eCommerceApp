@@ -6,10 +6,13 @@
     <div class="container-left-sort">
       <mat-form-field>
         <mat-label>Sort</mat-label>
-        <mat-select>
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let card of cards" [value]="cards">
-            {{ card.title }}
+        <mat-select [formControl]="sortControl">
+          <mat-option
+            *ngFor="let sort of sortOptions"
+            [value]="sort.value"
+            (click)="onSortSelected(sort)"
+          >
+            {{ sort.title }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -19,8 +22,13 @@
       <h3>Brands</h3>
 
       <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let card of cards" [value]="card">
-          {{ card.title }}
+        <mat-list-option
+          *ngFor="let brand of brands"
+          [value]="brand.id"
+          (click)="onBrandSelected(brand.id)"
+          [selected]="brand.id == 0"
+        >
+          {{ brand.name }}
         </mat-list-option>
       </mat-selection-list>
     </div>
@@ -29,8 +37,13 @@
       <h3>Types</h3>
 
       <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let card of cards" [value]="card">
-          {{ card.title }}
+        <mat-list-option
+          *ngFor="let type of types"
+          [value]="type.id"
+          (click)="onTypeSelected(type.id)"
+          [selected]="type.id == 0"
+        >
+          {{ type.name }}
         </mat-list-option>
       </mat-selection-list>
     </div>
@@ -40,33 +53,40 @@
 
     <div class="grid-container">
       <div class="header-container">
-        <h3 class="header-container-info">Showing 1 - 4 of 4 Results</h3>
+        <app-paging-header
+          *ngIf="totalCount > 0; else totalCountIsNull"
+          class="header-container-info"
+          [totalCount]="totalCount"
+          [pageIndex]="shopParams.pageIndex"
+          [pageSize]="shopParams.pageSize"
+        ></app-paging-header>
+
+        <ng-template #totalCountIsNull>
+          <h3 class="header-container-info">No records found, change the filter to see the results.</h3>
+        </ng-template>
 
         <div class="header-container-search">
           <mat-form-field>
             <mat-icon matPrefix>search</mat-icon>
-            <input matInput type="search" placeholder="search here" class="search-input">
+            <input #search (keyup.enter)="onSearch()" matInput type="search" placeholder="search by name" class="search-input">
           </mat-form-field>
 
-          <button mat-stroked-button color="primary">SEARCH</button>
+          <button (click)="onSearch()" mat-stroked-button color="primary">SEARCH</button>
         </div>
       </div>
 
       <div class="card-container">
-        <mat-card class="example-card" *ngFor="let product of products">
-          <mat-card-header>
-            <mat-card-title>{{ product.name }}</mat-card-title>
-            <mat-card-subtitle>{{ product.productBrand }}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="{{ product.pictureUrl }}" alt="Photo of a Product">
-          <mat-card-content>
-            <p>
-              {{ product.description }}
-            </p>
-          </mat-card-content>
-        </mat-card>
+        <ng-container *ngFor="let product of products">
+          <app-product-item [product]="product"></app-product-item>
+        </ng-container>
       </div>
     </div>
+
+    <app-pagination [pageIndex]="shopParams.pageIndex"
+                    [pageSize]="shopParams.pageSize"
+                    [totalCount]="totalCount"
+                    (pageChanged)="onPageChange($event)"
+    ></app-pagination>
   </div>
 
 </div>

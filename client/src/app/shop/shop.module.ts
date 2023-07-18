@@ -10,12 +10,17 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
-
+import { ProductItemComponent } from './product-item/product-item.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
-    ShopComponent
+    ShopComponent,
+    ProductItemComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +32,12 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatListModule,
     MatSelectModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatSlideToggleModule,
+    FormsModule,
+    MatPaginatorModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [ShopComponent],
   providers: [ShopService]

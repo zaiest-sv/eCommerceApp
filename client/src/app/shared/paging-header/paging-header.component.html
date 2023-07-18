@@ -1,0 +1,8 @@
+<ng-container>
+  <h3>Showing
+    <strong>{{ pageIndex * pageSize + 1 }}</strong> -
+    <strong>{{ pageIndex * pageSize > totalCount ? totalCount : (pageIndex + 1) * pageSize}}</strong>
+    of <strong>{{ totalCount }}</strong>
+    Results
+  </h3>
+</ng-container>
