@@ -1,0 +1,92 @@
+<div class="container">
+
+  <div class="container-left">
+    <h2>Filters</h2>
+
+    <div class="container-left-sort">
+      <mat-form-field>
+        <mat-label>Sort</mat-label>
+        <mat-select [formControl]="sortControl">
+          <mat-option
+            *ngFor="let sort of sortOptions"
+            [value]="sort.value"
+            (click)="onSortSelected(sort)"
+          >
+            {{ sort.title }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="container-left-brands">
+      <h3>Brands</h3>
+
+      <mat-selection-list [multiple]="false">
+        <mat-list-option
+          *ngFor="let brand of brands"
+          [value]="brand.id"
+          (click)="onBrandSelected(brand.id)"
+          [selected]="brand.id == 0"
+        >
+          {{ brand.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+
+    <div class="container-left-types">
+      <h3>Types</h3>
+
+      <mat-selection-list [multiple]="false">
+        <mat-list-option
+          *ngFor="let type of types"
+          [value]="type.id"
+          (click)="onTypeSelected(type.id)"
+          [selected]="type.id == 0"
+        >
+          {{ type.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+
+  <div class="container-right">
+
+    <div class="grid-container">
+      <div class="header-container">
+        <app-paging-header
+          *ngIf="totalCount > 0; else totalCountIsNull"
+          class="header-container-info"
+          [totalCount]="totalCount"
+          [pageIndex]="shopParams.pageIndex"
+          [pageSize]="shopParams.pageSize"
+        ></app-paging-header>
+
+        <ng-template #totalCountIsNull>
+          <h3 class="header-container-info">No records found, change the filter to see the results.</h3>
+        </ng-template>
+
+        <div class="header-container-search">
+          <mat-form-field>
+            <mat-icon matPrefix>search</mat-icon>
+            <input #search (keyup.enter)="onSearch()" matInput type="search" placeholder="search by name" class="search-input">
+          </mat-form-field>
+
+          <button (click)="onSearch()" mat-stroked-button color="primary">SEARCH</button>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <ng-container *ngFor="let product of products">
+          <app-product-item [product]="product"></app-product-item>
+        </ng-container>
+      </div>
+    </div>
+
+    <app-pagination [pageIndex]="shopParams.pageIndex"
+                    [pageSize]="shopParams.pageSize"
+                    [totalCount]="totalCount"
+                    (pageChanged)="onPageChange($event)"
+    ></app-pagination>
+  </div>
+
+</div>
