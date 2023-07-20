@@ -8,6 +8,11 @@ mat-toolbar {
   .header-center {
     button {
       font-size: large;
+      color: #c5cae9;
+    }
+
+    .active {
+      color: white;
     }
   }
 

@@ -17,4 +17,20 @@ mat-card {
       text-align: center;
     }
   }
+
+  .card-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    button {
+      width: 45%;
+      text-transform: uppercase;
+
+      mat-icon {
+        margin-left: 0;
+      }
+    }
+  }
 }

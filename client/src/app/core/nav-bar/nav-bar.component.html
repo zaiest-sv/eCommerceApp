@@ -1,7 +1,7 @@
 <ng-container>
   <mat-toolbar color="primary">
     <div class="header-left">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button mat-icon-button aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
@@ -9,8 +9,13 @@
     <div class="header-center">
       <span class="spacer"></span>
 
-      <button mat-button routerLink="">Home</button>
-      <button mat-button routerLink="">Shop</button>
+      <button
+        mat-button
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Home</button>
+      <button mat-button routerLink="/shop" routerLinkActive="active">Shop</button>
       <span class="spacer"></span>
     </div>
 

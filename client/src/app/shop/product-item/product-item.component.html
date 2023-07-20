@@ -1,4 +1,4 @@
-<mat-card class="example-card" *ngIf="product">
+<mat-card *ngIf="product">
   <mat-card-header>
     <mat-card-title>{{ product.name }}</mat-card-title>
     <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
@@ -9,4 +9,10 @@
       {{ product.description.length > 50 ? product.description.slice(0, 50) + '...' : product.description}}
     </p>
   </mat-card-content>
+
+  <mat-card-actions class="card-button">
+    <button mat-stroked-button color="primary"><mat-icon>shopping_cart</mat-icon></button>
+    <button mat-stroked-button color="primary" routerLink="/shop/{{product.id}}">Details</button>
+  </mat-card-actions>
+
 </mat-card>
