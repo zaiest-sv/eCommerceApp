@@ -15,12 +15,17 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {SharedModule} from "../shared/shared.module";
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import {RouterLink} from "@angular/router";
+import {MatTableModule} from "@angular/material/table";
+import {ShopRoutingModule} from "./shop-routing.module";
 
 
 @NgModule({
   declarations: [
     ShopComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -37,9 +42,11 @@ import {SharedModule} from "../shared/shared.module";
     FormsModule,
     MatPaginatorModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink,
+    MatTableModule,
+    ShopRoutingModule
   ],
-  exports: [ShopComponent],
   providers: [ShopService]
 })
 export class ShopModule { }

@@ -8,6 +8,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { MatBadgeModule } from "@angular/material/badge";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [NavBarComponent],
@@ -16,7 +17,8 @@ import { MatBadgeModule } from "@angular/material/badge";
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent

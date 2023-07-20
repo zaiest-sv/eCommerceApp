@@ -1,0 +1,59 @@
+<div class="container" *ngIf="product">
+  <div class="container-image">
+    <div class="main-image">
+      <img mat-card-image src="{{ product.pictureUrl }}" alt="{{ product.name }}">
+    </div>
+
+    <div class="additional-image">
+      <img class="active-image" mat-card-image src="{{ product.pictureUrl }}" alt="{{ product.name }}">
+      <img mat-card-image src="{{ product.pictureUrl }}" alt="{{ product.name }}">
+      <img mat-card-image src="{{ product.pictureUrl }}" alt="{{ product.name }}">
+    </div>
+  </div>
+  <div class="container-info">
+
+    <div class="info-header">
+      <h2>{{ product.name }}</h2>
+      <p>ID: {{ product.id }}</p>
+    </div>
+
+    <div class="info-main">
+      <div class="info-main-price">
+        <p>{{ product.price | currency }}</p>
+        <p class="old-price">
+          <del>{{ product.price * 1.2 | currency }}</del>
+        </p>
+      </div>
+
+      <div class="info-main-description">
+        <h3>description</h3>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div class="info-main-order">
+        <div class="order-increment">
+          <button mat-mini-fab>
+            <mat-icon>remove_circle_outline</mat-icon>
+          </button>
+
+          <span> {{ numberOfOrders }} </span>
+
+          <button mat-mini-fab>
+            <mat-icon>add_circle_outline</mat-icon>
+          </button>
+        </div>
+
+        <div class="order-add-to-cart">
+          <button mat-stroked-button color="accent">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="info-main-categories">
+        <p>
+          <b>Categories: </b>{{ product.productBrand }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
