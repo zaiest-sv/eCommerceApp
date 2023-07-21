@@ -9,16 +9,26 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { MatBadgeModule } from "@angular/material/badge";
 import { RouterModule } from "@angular/router";
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ServerErrorComponent } from './server-error/server-error.component';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [NavBarComponent, NotFoundComponent, ServerErrorComponent],
   imports: [
     CommonModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
     MatBadgeModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot({
+      timeOut: 15000,
+      positionClass: 'toast-bottom-right',
+      closeButton: true,
+      progressBar: true,
+      preventDuplicates: true
+    }),
   ],
   exports: [
     NavBarComponent
