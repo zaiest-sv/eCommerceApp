@@ -6,11 +6,10 @@ import {Observable} from "rxjs";
 import {Brand} from "../shared/models/brand";
 import {Type} from "../shared/models/type";
 import {ShopParams} from "../shared/models/shopParams";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ShopService {
-  baseUrl = 'https://localhost:5001/api/';
-
   shopParams = new ShopParams();
 
   constructor(private http: HttpClient) { }
@@ -33,19 +32,19 @@ export class ShopService {
       params = params.append('search', shopParams.search);
     }
 
-    return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', { params });
+    return this.http.get<Pagination<Product[]>>(environment.apiUrl + 'products', { params });
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(this.baseUrl + 'products/' + id);
+    return this.http.get<Product>(environment.apiUrl + 'products/' + id);
   }
 
   getBrands(): Observable<Brand[]> {
-    return this.http.get<Brand[]>(this.baseUrl + 'products/brands');
+    return this.http.get<Brand[]>(environment.apiUrl + 'products/brands');
   }
 
   getTypes(): Observable<Type[]> {
-    return this.http.get<Type[]>(this.baseUrl + 'products/types');
+    return this.http.get<Type[]>(environment.apiUrl + 'products/types');
   }
 
   getShopParams() {

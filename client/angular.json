@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
@@ -37,6 +38,12 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -99,6 +106,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
