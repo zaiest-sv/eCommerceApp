@@ -1,0 +1,18 @@
+<ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
+  <section *ngIf="breadcrumbs[breadcrumbs.length - 1].label !== 'Home'">
+    <div class="container">
+      <div>
+        <div>
+          <h1>{{ breadcrumbs[breadcrumbs.length-1].label | titlecase }}</h1>
+        </div>
+        <div>
+          <xng-breadcrumb>
+            <ng-container *xngBreadcrumbItem="let breadcrumb">
+              {{ breadcrumb | titlecase }}
+            </ng-container>
+          </xng-breadcrumb>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
