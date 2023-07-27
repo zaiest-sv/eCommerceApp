@@ -32,13 +32,13 @@
 
       <div class="info-main-order">
         <div class="order-increment">
-          <button mat-mini-fab>
+          <button (click)="decrementQuantity()" mat-mini-fab>
             <mat-icon>remove_circle_outline</mat-icon>
           </button>
 
-          <span> {{ numberOfOrders }} </span>
+          <span> {{ quantity }} </span>
 
-          <button mat-mini-fab>
+          <button (click)="incrementQuantity()" mat-mini-fab>
             <mat-icon>add_circle_outline</mat-icon>
           </button>
         </div>

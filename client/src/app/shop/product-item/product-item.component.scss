@@ -6,31 +6,67 @@ mat-card {
   justify-content: space-between;
   align-content: center;
 
-  img {
+  .image-container {
+    position: relative;
     align-self: center;
-    width: 200px;
-    height: 200px;
-  }
+    cursor: pointer;
 
+    & :hover {
+      opacity: 1;
+      & button {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .card-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+
+      button {
+        width: 45%;
+        text-transform: uppercase;
+
+        mat-icon {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
   mat-card-content {
     p {
       text-align: center;
     }
   }
+}
 
-  .card-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
+.hover-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.5);
+  opacity: 0;
+  transition: all 0.5s;
 
-    button {
-      width: 45%;
-      text-transform: uppercase;
+  & button {
+    z-index: 1000;
+    transition: all 0.5s;
+  }
 
-      mat-icon {
-        margin-left: 0;
-      }
-    }
+  & button:first-of-type {
+    transform: translateX(-20px);
+  }
+
+  & button:last-of-type {
+    transform: translateX(20px);
   }
 }

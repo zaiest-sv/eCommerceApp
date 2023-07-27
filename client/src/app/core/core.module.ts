@@ -12,9 +12,12 @@ import { RouterModule } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import {ToastrModule} from "ngx-toastr";
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import {BreadcrumbModule} from "xng-breadcrumb";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
-  declarations: [NavBarComponent, NotFoundComponent, ServerErrorComponent],
+  declarations: [NavBarComponent, NotFoundComponent, ServerErrorComponent, BreadcrumbsComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -29,9 +32,14 @@ import {ToastrModule} from "ngx-toastr";
       progressBar: true,
       preventDuplicates: true
     }),
+    BreadcrumbModule,
+    NgxSpinnerModule
   ],
+  providers: [],
   exports: [
-    NavBarComponent
+    NavBarComponent,
+    BreadcrumbsComponent,
+    NgxSpinnerModule
     ]
 })
 export class CoreModule { }
