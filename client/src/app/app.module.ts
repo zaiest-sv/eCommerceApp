@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 
 import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
-import {ShopModule} from "./shop/shop.module";
 import {HomeModule} from "./home/home.module";
 import {ErrorInterceptor} from "./core/interceptors/error.interceptor";
 import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
+import {CheckoutModule} from "./checkout/checkout.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
-    HomeModule
+    HomeModule,
+    CheckoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

@@ -21,15 +21,19 @@
 
     <div class="header-right">
 
-      <button mat-icon-button>
-        <mat-icon
-          [matBadge]="1"
-          [matBadgeHidden]="false"
-          matBadgeSize="medium"
-          matBadgeColor="warn"
-        >shopping_cart</mat-icon>
+      <button mat-icon-button routerLink="/basket">
+        <div *ngIf="(basketService.basketSource$ | async) as basket; else basketIsEmpty" class="cart-no">
+          <mat-icon
+            [matBadge]="getCount(basket.items)"
+            [matBadgeHidden]="false"
+            matBadgeSize="small"
+            matBadgeColor="warn"
+          >shopping_cart</mat-icon>
+        </div>
+        <ng-template #basketIsEmpty>
+          <mat-icon>shopping_cart</mat-icon>
+        </ng-template>
       </button>
-
 
       <button mat-flat-button routerLink="auth/login">Log in</button>
       <button mat-flat-button routerLink="auth/signup">Sign up</button>

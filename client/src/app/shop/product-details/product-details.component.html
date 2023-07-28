@@ -44,9 +44,17 @@
         </div>
 
         <div class="order-add-to-cart">
-          <button mat-stroked-button color="accent">Add To Cart</button>
+          <button (click)="updateBasket()"
+                  [disabled]="quantity === quantityInBasket"
+                  mat-stroked-button
+                  color="accent"
+          >{{ buttonText }}</button>
         </div>
       </div>
+
+      <h5 *ngIf="quantityInBasket > 0">
+        You have <b>{{quantityInBasket}}</b> of this item in your basket
+      </h5>
 
       <div class="info-main-categories">
         <p>
@@ -54,6 +62,5 @@
         </p>
       </div>
     </div>
-
   </div>
 </div>
