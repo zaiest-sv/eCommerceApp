@@ -1,0 +1,43 @@
+.order-summary {
+  margin-top: 60px;
+
+  .header {
+    background-color: #dcdce3;
+
+    p {
+      font-weight: 500;
+      font-size: 18px;
+      padding: 20px;
+    }
+  }
+
+  .main {
+    padding: 20px;
+
+    p {
+      font-size: 16px;
+      font-style: italic;
+      color: grey;
+    }
+
+    .main-info {
+      div {
+        height: 52px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 0.5px solid #dee2e6;
+
+        p {
+          font-weight: 500;
+          color: black;
+        }
+
+        .main-info-left {
+          color: #555;
+        }
+      }
+    }
+  }
+}
